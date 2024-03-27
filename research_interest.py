@@ -24,9 +24,9 @@ with open(pdf_file,"rb") as f:
 pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
 
 st.markdown("<h1 style='text-align: center; color: grey;'>CV - Tongmeng Xie</h1>", unsafe_allow_html=True)
+st.markdown("If PDF is not rendered, check on Google Drive: [CV - Tongmeng Xie](https://drive.google.com/file/d/19ajp4iERX5aoLSDvGJYWMJ3nhZxw5m29/view?usp=sharing)", unsafe_allow_html=True)
 
 st.markdown(f"<h1 style='text-align: center; color: grey;'>{pdf_display}</h1>", unsafe_allow_html=True)
-st.markdown("If PDF is not rendered, check on Google Drive: [CV - Tongmeng Xie](https://drive.google.com/file/d/19ajp4iERX5aoLSDvGJYWMJ3nhZxw5m29/view?usp=sharing)", unsafe_allow_html=True)
 
 
 
