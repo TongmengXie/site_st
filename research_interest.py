@@ -1,9 +1,21 @@
 import streamlit as st
+import os
+try: import base64
+except: os.system("pip install base64")
+finally: import base64
+
+# CV
+st.title('CV - Tongmeng Xie')
+pdf_file = 'Curriculum Vitae-Tongmeng Xie_DS_industrial.pdf'
+with open(pdf_file,"rb") as f:
+      base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
+st.markdown(pdf_display, unsafe_allow_html=True)
 
 
-
-st.title('Researches- Tongmeng Xie')
-st.write('# Address Matching and Entity Extraction Across Data Sets')
+# Researches
+st.title('Researches - Tongmeng Xie')
+st.write('## Address Matching and Entity Extraction Across Data Sets')
 
 with st.columns(3)[1]:
     st.image('./Overview_addrmatch.png', caption='Overview of Address Matching Workflow')
@@ -14,23 +26,23 @@ with st.columns(3)[1]:
 
 other_researches =  \
 '''
-# **Has the expansion of Ultra Low Emission Zone in 2021 improved air quality in London? How to quantify the improvement?**
+## **Has the expansion of Ultra Low Emission Zone in 2021 improved air quality in London? How to quantify the improvement?**
 
 *The study found that the expansion of London's Ultra Low Emission Zone (ULEZ) in October 2021 led to a modest 3-9% reduction in PM10-associated pollutants, confirmed causality via Regression Discontinuity Design (RDD), and noted spatial spillover effects, but suggests further analysis on other pollutants and time scope adjustments.*
 
-## **Research Questions:**
+### **Research Questions:**
 
 1.  Did the expansion of the Ultra Low Emission Zone (ULEZ) in October 2021 improve air quality in London?
 
 2.  How can this improvement be quantified?
 
-## **Key Findings:**
+### **Key Findings:**
 
-### **Air Quality Improvement:**
+#### **Air Quality Improvement:**
 
 The expansion of ULEZ on October 25, 2021, led to a noticeable but not significant improvement in air quality. Specifically, there was a 3-9% reduction in PM10-associated pollutants in Greater London.
 
-### **Sub-Questions:**
+#### **Sub-Questions:**
 
 1.  **Categorization of Pollutants**: Pollutants were organized into groups based on their collinearity. The categories include:
 
@@ -48,7 +60,7 @@ The expansion of ULEZ on October 25, 2021, led to a noticeable but not significa
 
 3.  **Spatial Patterns**: Air quality improved not just within the expanded ULEZ area but also in areas outside it, potentially due to spatial spillover effects.
 
-### **Areas for Further Research:**
+#### **Areas for Further Research:**
 
 1.  **Other Pollutants**: Further investigation is needed to understand the impact on other pollutants.
 
@@ -56,11 +68,11 @@ The expansion of ULEZ on October 25, 2021, led to a noticeable but not significa
 
 3.  **Time Scope**: The timeframe for assessing the effects of ULEZ expansion may need adjustment and could necessitate iterative analysis.
 
-# Why are KS4 performance in Liverpool and Manchester lower than the national average? Exploration and Quantification of Socio-economic Factors Influencing KS4 Performance in England
+## Why are KS4 performance in Liverpool and Manchester lower than the national average? Exploration and Quantification of Socio-economic Factors Influencing KS4 Performance in England
 
 *The study reveals that while there is no significant difference in overall deprivation between Liverpool & Manchester and the rest of England, students in Liverpool & Manchester are more socio-demographically disadvantaged, and these disadvantages have a greater negative impact on their educational outcomes.*
 
-## **Main Research Questions:**
+### **Main Research Questions:**
 
 1.  How does the attainment 8 score relate to deprivation indicators?
 
@@ -68,27 +80,27 @@ The expansion of ULEZ on October 25, 2021, led to a noticeable but not significa
 
 3.  Do socio-economic disadvantages have a greater impact on educational outcomes in Liverpool & Manchester?
 
-## **Key Findings:**
+### **Key Findings:**
 
-### **Relationship between Attainment 8 and Deprivation**
+#### **Relationship between Attainment 8 and Deprivation**
 
 -   After accounting for deprivation-related variables, the model's explanatory power (Adj. *R*2) increased from 57.5% to 77.3%.
 
 -   An additional 1% of students with Special Education Needs (SEN) is associated with a 48.3-point decrease in a borough's attainment 8 score.
 
-### **Hypothesis Tests**
+#### **Hypothesis Tests**
 
 1.  **Severity of Socio-Economic Disadvantages in Liverpool & Manchester**: There is no significant difference in the level of deprivation in and outside of Liverpool & Manchester.
 
 2.  **Impact of Socio-Economic Disadvantages in Liverpool & Manchester**: Socio-demographic disadvantages are more heavily weighted in Liverpool & Manchester, affecting educational outcomes more than they do in the rest of England.
 
-### **Model Limitations**
+#### **Model Limitations**
 
 -   One variable related to socio-demographics in Liverpool & Manchester had a p-value greater than 0.05, indicating the model may not be a perfect fit.
 
 -   The study may benefit from the inclusion of other socio-economic factors like disability, or the use of machine learning techniques for better fit.
 
-## **Discussion**
+### **Discussion**
 
 Students in Liverpool & Manchester are more socio-demographically disadvantaged, and this has a heavier impact on their educational outcomes than for students outside these areas. Interventions such as cultural competency training for educators and safe spaces for marginalized students could improve educational equity and inclusion in Liverpool & Manchester.
 
