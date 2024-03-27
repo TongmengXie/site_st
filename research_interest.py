@@ -1,5 +1,8 @@
 import streamlit as st
 import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
+sys.path.append('/mount/src/site_st/')
 try: import base64
 except: os.system("pip install base64")
 finally: import base64
