@@ -8,7 +8,7 @@ except: os.system("pip install base64")
 finally: import base64
 
 try: import streamlit_pdf_viewer
-except: os.system("pip install streamlit-pdf-viewer")
+except: os.system("pip install streamlit_pdf_viewer")
 finally: import streamlit_pdf_viewer
 
 # set_page_config (This must be the first Streamlit command used on an app page, and must only be set once per page.)
@@ -19,29 +19,35 @@ st.set_page_config(layout="wide")
 # centereing the cv
 pdf_file = './cv_TongmengXie_DS_industrial.pdf'
 
-# # find if the file exists
-# if not os.path.exists(pdf_file):
-#     st.error("PDF file not found")
+# find if the file exists
+if not os.path.exists(pdf_file):
+    st.error("PDF file not found")
 
-# with open(pdf_file,"rb") as f:
-#       base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-# pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
+with open(pdf_file,"rb") as f:
+      base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
 
-# st.markdown("<h1 style='text-align: center; color: grey;'>CV - Tongmeng Xie</h1>", unsafe_allow_html=True)
-# st.markdown(f"<h1 style='text-align: center; color: grey;'>{pdf_display}</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: grey;'>CV - Tongmeng Xie</h1>", unsafe_allow_html=True)
+st.markdown("If PDF is not rendered, check on Google Drive: https://drive.google.com/file/d/19ajp4iERX5aoLSDvGJYWMJ3nhZxw5m29/view?usp=sharing", unsafe_allow_html=True)
+
+st.markdown(f"<h1 style='text-align: center; color: grey;'>{pdf_display}</h1>", unsafe_allow_html=True)
 
 
-from streamlit_pdf_viewer import pdf_viewer
+# from streamlit_pdf_viewer import pdf_viewer
 
-container_pdf, container_chat = st.columns([50, 50])
+# container_pdf, container_chat = st.columns([50, 50])
 
-with container_pdf:
-    pdf_file = st.file_uploader(pdf_file, type=('pdf'))
 
-    if pdf_file:
-        binary_data = pdf_file.getvalue()
-        pdf_viewer(input=binary_data,
-                   width=700)
+# with container_pdf:
+#     with open(pdf_file,"rb") as f:
+#           base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+#     pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
+#     pdf_file = st.file_uploader(pdf_display, type=('pdf'))
+
+#     if pdf_file:
+#         binary_data = pdf_file.getvalue()
+#         pdf_viewer(input=binary_data,
+#                    width=700)
 
 # col1, col2, col3 = st.columns(3)
 
