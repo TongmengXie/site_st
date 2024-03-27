@@ -4,13 +4,33 @@ try: import base64
 except: os.system("pip install base64")
 finally: import base64
 
+# set_page_config (This must be the first Streamlit command used on an app page, and must only be set once per page.)
+# st.set_page_config(page_title=None, page_icon=None, layout="centered", initial_sidebar_state="auto", menu_items=None)
+st.set_page_config(layout="wide")
+
 # CV
-st.title('CV - Tongmeng Xie')
-pdf_file = 'Curriculum Vitae-Tongmeng Xie_DS_industrial.pdf'
+# centereing the cv
+pdf_file = './cv_TongmengXie_DS_industrial.pdf'
 with open(pdf_file,"rb") as f:
       base64_pdf = base64.b64encode(f.read()).decode('utf-8')
 pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
-st.markdown(pdf_display, unsafe_allow_html=True)
+
+st.markdown("<h1 style='text-align: center; color: grey;'>CV - Tongmeng Xie</h1>", unsafe_allow_html=True)
+st.markdown(f"<h1 style='text-align: center; color: grey;'>{pdf_display}</h1>", unsafe_allow_html=True)
+
+# col1, col2, col3 = st.columns(3)
+
+# with col1:
+#     st.write(' ')
+
+# with col2:
+#     st.title('<h1 style='text-align: center; color: grey;'>CV - Tongmeng Xie</h1>')
+#     st.markdown(pdf_display, unsafe_allow_html=True)
+
+# with col3:
+#     st.write(' ')
+
+
 
 
 # Researches
