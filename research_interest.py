@@ -28,38 +28,9 @@ with open(pdf_file,"rb") as f:
 pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
 
 st.markdown("<h1 style='text-align: center; color: grey;'>CV - Tongmeng Xie</h1>", unsafe_allow_html=True)
-st.markdown("If PDF is not rendered, check on Google Drive: https://drive.google.com/file/d/19ajp4iERX5aoLSDvGJYWMJ3nhZxw5m29/view?usp=sharing", unsafe_allow_html=True)
 
 st.markdown(f"<h1 style='text-align: center; color: grey;'>{pdf_display}</h1>", unsafe_allow_html=True)
-
-
-# from streamlit_pdf_viewer import pdf_viewer
-
-# container_pdf, container_chat = st.columns([50, 50])
-
-
-# with container_pdf:
-#     with open(pdf_file,"rb") as f:
-#           base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-#     pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
-#     pdf_file = st.file_uploader(pdf_display, type=('pdf'))
-
-#     if pdf_file:
-#         binary_data = pdf_file.getvalue()
-#         pdf_viewer(input=binary_data,
-#                    width=700)
-
-# col1, col2, col3 = st.columns(3)
-
-# with col1:
-#     st.write(' ')
-
-# with col2:
-#     st.title('<h1 style='text-align: center; color: grey;'>CV - Tongmeng Xie</h1>')
-#     st.markdown(pdf_display, unsafe_allow_html=True)
-
-# with col3:
-#     st.write(' ')
+st.markdown("If PDF is not rendered, check on Google Drive: [CV - Tongmeng Xie](https://drive.google.com/file/d/19ajp4iERX5aoLSDvGJYWMJ3nhZxw5m29/view?usp=sharing)", unsafe_allow_html=True)
 
 
 
