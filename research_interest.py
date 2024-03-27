@@ -9,11 +9,16 @@ finally: import base64
 
 # set_page_config (This must be the first Streamlit command used on an app page, and must only be set once per page.)
 # st.set_page_config(page_title=None, page_icon=None, layout="centered", initial_sidebar_state="auto", menu_items=None)
-# st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 
 # CV
 # centereing the cv
 pdf_file = './cv_TongmengXie_DS_industrial.pdf'
+
+# find if the file exists
+if not os.path.exists(pdf_file):
+    st.error("PDF file not found")
+
 with open(pdf_file,"rb") as f:
       base64_pdf = base64.b64encode(f.read()).decode('utf-8')
 pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
