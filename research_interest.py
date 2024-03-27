@@ -7,10 +7,6 @@ try: import base64
 except: os.system("pip install base64")
 finally: import base64
 
-try: import streamlit_pdf_viewer
-except: os.system("pip install streamlit_pdf_viewer")
-finally: import streamlit_pdf_viewer
-
 # set_page_config (This must be the first Streamlit command used on an app page, and must only be set once per page.)
 # st.set_page_config(page_title=None, page_icon=None, layout="centered", initial_sidebar_state="auto", menu_items=None)
 st.set_page_config(layout="wide")
