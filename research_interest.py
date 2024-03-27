@@ -9,7 +9,7 @@ finally: import base64
 
 # set_page_config (This must be the first Streamlit command used on an app page, and must only be set once per page.)
 # st.set_page_config(page_title=None, page_icon=None, layout="centered", initial_sidebar_state="auto", menu_items=None)
-st.set_page_config(layout="wide")
+# st.set_page_config(layout="wide")
 
 # CV
 # centereing the cv
