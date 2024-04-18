@@ -33,7 +33,11 @@ st.markdown(f"<h1 style='text-align: center; color: grey;'>{pdf_display}</h1>", 
 
 # Researches
 st.title('Researches - Tongmeng Xie')
-st.write('## Address Matching and Entity Extraction Across Data Sets')
+
+
+st.write('## 09/2023-01/2024: Research Assistant, Marshallian Theories In A Historical Context: Matching Across Censuses and Patent Data')
+
+st.write('## 05/2023-08/2023: Master Dissertation: Address Matching and Entity Extraction Across Data Sets')
 
 with st.columns(3)[1]:
     st.image('./Overview_addrmatch.png', caption='Overview of Address Matching Workflow')
@@ -42,8 +46,7 @@ with st.columns(3)[1]:
     st.image('./Prep_NER_train.png', caption='Preparing for NER training process')
 
 
-other_researches =  \
-'''
+ulez =  '''
 ## **Has the expansion of Ultra Low Emission Zone in 2021 improved air quality in London? How to quantify the improvement?**
 
 *The study found that the expansion of London's Ultra Low Emission Zone (ULEZ) in October 2021 led to a modest 3-9% reduction in PM10-associated pollutants, confirmed causality via Regression Discontinuity Design (RDD), and noted spatial spillover effects, but suggests further analysis on other pollutants and time scope adjustments.*
@@ -74,7 +77,7 @@ The expansion of ULEZ on October 25, 2021, led to a noticeable but not significa
 
     -   Uncategorised: PM2.5, O3
 
-2.  **Causality**: The study confirmed a causal relationship between ULEZ expansion and air quality improvement through Regression Discontinuity Design (RDD).
+2.  **Causality**: The study found a causal relationship between ULEZ expansion and air quality improvement through Regression Discontinuity Design (RDD).
 
 3.  **Spatial Patterns**: Air quality improved not just within the expanded ULEZ area but also in areas outside it, potentially due to spatial spillover effects.
 
@@ -85,10 +88,24 @@ The expansion of ULEZ on October 25, 2021, led to a noticeable but not significa
 2.  **Average Performance Metrics**: A more comprehensive measure of air quality improvement is yet to be developed.
 
 3.  **Time Scope**: The timeframe for assessing the effects of ULEZ expansion may need adjustment and could necessitate iterative analysis.
+'''
 
-## Why are KS4 performance in Liverpool and Manchester lower than the national average? Exploration and Quantification of Socio-economic Factors Influencing KS4 Performance in England
+st.write(ulez)
 
-*The study reveals that while there is no significant difference in overall deprivation between Liverpool & Manchester and the rest of England, students in Liverpool & Manchester are more socio-demographically disadvantaged, and these disadvantages have a greater negative impact on their educational outcomes.*
+
+gcse = '''
+## 11/2022-01/2023: Why are KS4 performance in Liverpool and Manchester lower than the national average? 
+-- Exploration and Quantification of Socio-economic Factors Influencing KS4 Performance in England
+
+__Key words: Education, Inequality, Statistical Analysis, Polynomial Regreassion, Principle Component Analysis, Linear Regression__
+
+**Concilusion**: The study reveals that while there is no significant difference in overall deprivation between Liverpool & Manchester and the rest of England, students in Liverpool & Manchester are more socio-demographically disadvantaged, and these disadvantages have a greater negative impact on their educational outcomes.
+
+**Relationship between Attainment 8 and Deprivation**
+
+-   After accounting for deprivation-related variables, the model's explanatory power (Adj. *R*2) increased from 57.5% to 77.3%.
+
+-   An additional 1% of students with Special Education Needs (SEN) is associated with a 48.3-point decrease in a borough's attainment 8 score.
 
 ### **Main Research Questions:**
 
@@ -98,18 +115,33 @@ The expansion of ULEZ on October 25, 2021, led to a noticeable but not significa
 
 3.  Do socio-economic disadvantages have a greater impact on educational outcomes in Liverpool & Manchester?
 
-### **Key Findings:**
 
-#### **Relationship between Attainment 8 and Deprivation**
+### **Methodology**
 
--   After accounting for deprivation-related variables, the model's explanatory power (Adj. *R*2) increased from 57.5% to 77.3%.
+Multivariate linear regression with controlled variables: Having chosen variables using Variance inflation factor (VIF).
+'''
+st.write(gcse)
+with st.columns(3)[1]:
+    st.image('./imgs/multivariate_linear_regression.png', caption='Multivariate linear regression result on attainment 8 score comparing between before and after adding deprivation-related variables')
 
--   An additional 1% of students with Special Education Needs (SEN) is associated with a 48.3-point decrease in a borough's attainment 8 score.
+gcse_1 = '''
+Feature engineering: Principal Component Analysis (PCA) were used to create new variables.
+
 
 #### **Hypothesis Tests**
+'''
 
+st.write(gcse_1)
+with st.columns(3)[1]:
+    st.image('./imgs/hypothesis_1.png', caption='Hypothesis one - socio-economic disadvantages are more severe in the area')
+gcse_2 = '''
 1.  **Severity of Socio-Economic Disadvantages in Liverpool & Manchester**: There is no significant difference in the level of deprivation in and outside of Liverpool & Manchester.
+'''
+st.write(gcse_2)
+with st.columns(3)[1]:
+    st.image('./imgs/hypothesis_2.png', caption='Hypothesis two - socio-economic disadvantages get more weighted in the area')
 
+gcse_3 = '''
 2.  **Impact of Socio-Economic Disadvantages in Liverpool & Manchester**: Socio-demographic disadvantages are more heavily weighted in Liverpool & Manchester, affecting educational outcomes more than they do in the rest of England.
 
 #### **Model Limitations**
@@ -118,12 +150,10 @@ The expansion of ULEZ on October 25, 2021, led to a noticeable but not significa
 
 -   The study may benefit from the inclusion of other socio-economic factors like disability, or the use of machine learning techniques for better fit.
 
-### **Discussion**
+#### **Discussion**
 
 Students in Liverpool & Manchester are more socio-demographically disadvantaged, and this has a heavier impact on their educational outcomes than for students outside these areas. Interventions such as cultural competency training for educators and safe spaces for marginalized students could improve educational equity and inclusion in Liverpool & Manchester.
 
 By understanding these factors, policymakers can better tailor interventions to support students from disadvantaged backgrounds.
 '''
-
-st.write(other_researches)
-
+st.write(gcse_3)
