@@ -39,13 +39,15 @@ st.write('## 09/2023-01/2024: Research Assistant, Marshallian Theories In A Hist
 
 st.write('## 05/2023-08/2023: Master Dissertation: Address Matching and Entity Extraction Across Data Sets')
 
-with st.columns(3)[1]:
+col1, col2, col3 = st.columns([1,3,1])
+with col2:
     st.image('./Overview_addrmatch.png', caption='Overview of Address Matching Workflow')
     st.image('./Conc_ensemble_lev.png', caption='Conclusions on various ensemble levels')
     st.image('./Comp_Ensemble.png', caption='Comparison of different Ensemble methods')
     st.image('./Prep_NER_train.png', caption='Preparing for NER training process')
 
 
+# ULEZ
 ulez =  '''
 ## **Has the expansion of Ultra Low Emission Zone in 2021 improved air quality in London? How to quantify the improvement?**
 
@@ -77,9 +79,84 @@ The expansion of ULEZ on October 25, 2021, led to a noticeable but not significa
 
     -   Uncategorised: PM2.5, O3
 
+'''
+st.write(ulez)
+col1, col2, col3 = st.columns([1,3,1])
+with col2:
+    st.image('./imgs/ulez/t_sne.png', caption='''t-SNE aims to preserve the local structure of the data. As there are four distinct clusters in two-dimensional space, we can assume that urban traffic, urban background, urban industry and suburban are a categorisation that captures similarity of data points in the high-dimensional space. In this case, that is the 15-dimension space of air quality indicators.  
+So categorising sites according to location types is supported by t-SNE analysis. Later, in effect presentation, treatment effect of the policy will be presented according to this grouping.''')
+
+
+
+## CAUSALITY
+
+ulez_linear_same_slope = '''
+
 2.  **Causality**: The study found a causal relationship between ULEZ expansion and air quality improvement through Regression Discontinuity Design (RDD).
 
+To define the treatment variable $D_i$:
+> $$D_i = \begin{cases} 
+           0, & x_i < x_c \\
+           1, & x_i > x_c \\
+        \end{cases}$$
+        where $x_i$ is the value for the running variable, while x_c being the cutoff.
+
+Doing RDD we mainly use OLS(Ordinary Least Squares) models featuring the following formulai (Cattaneo, Idrobo, and Titiunik, 2019; Imbens and Lemieux, 2008):
+
+* linear, same slope:
+
+$$
+Y_i = \gamma + \alpha *D_i + \beta*X_i + \epsilon_i
+$$
+'''
+st.markdown(ulez_linear_same_slope, unsafe_allow_html=True)
+col1, col2, col3 = st.columns([1,3,1])
+with col2:
+    st.image('./imgs/ulez/NOx_RDD_linear_same_slope.png', caption='''RDD estimate using linear_same_slope model: 0.4897 (-116.57%)''')
+
+ulez_linear_diff_slope ='''
+* linear, different slopes: 
+
+$$
+Y_i = \gamma + \alpha*D_i + \beta_0X_i + \beta_1(X_i * D_i) + \epsilon_i
+$$
+'''
+
+st.markdown(ulez_linear_diff_slope, unsafe_allow_html=True)
+col1, col2, col3 = st.columns([1,3,1])
+with col2:
+    st.image('./imgs/ulez/NOx_RDD_linear_diff_slope.png', caption='''DD estimate using linear_diff_slope model: 0.4314 (-97.68%)''')
+
+ulez_linear_quadra = '''
+* Non-linear (quadratic):
+
+$$
+Y_i = \gamma_0 + \gamma_1X_i + \gamma_2X_i^2 + \alpha_0D_i + \alpha_1(X_i * D_i) + \alpha_2(X_i^2 * D_i) + \epsilon_i
+$$
+
+In the formulai above, $\alpha$, $\beta$, $\gamma$ and their variants are what the models need to capture.
+
+Metric for quantification:
+
+For quantifying the effect of the policy, I use:
+
+> $${\alpha}SRDD = \\  \operatorname{E}\left[Y_i\left(1\right)-Y_i\left(0\right)\mid X_i=c\right] = \\  \lim_{x\to c^-}\operatorname{E}\left[Y_i\left|\,X_i=c\right.\right] - \lim_{x\to c^+}\operatorname{E}\left[Y_i\left|\,X_i=c\right.\right]$$
+'''
+st.markdown(ulez_linear_quadra, unsafe_allow_html=True)
+col1, col2, col3 = st.columns([1,3,1])
+with col2:
+    st.image('./imgs/ulez/NOx_RDD_quadra.png', caption='''DD estimate using quadratic model: 0.5354 (-283.50%)''')
+
+## Spatial Patterns
+ulez_spatial = '''
 3.  **Spatial Patterns**: Air quality improved not just within the expanded ULEZ area but also in areas outside it, potentially due to spatial spillover effects.
+
+'''
+st.write(ulez_spatial)
+col1, col2, col3 = st.columns([1,3,1])
+with col2:
+    st.image('./imgs/ulez/treatment_effect_PM10_associated.png', caption='Multivariate linear regression result on attainment 8 score comparing between before and after adding deprivation-related variables')
+ulez_limits = '''
 
 #### **Areas for Further Research:**
 
@@ -89,10 +166,9 @@ The expansion of ULEZ on October 25, 2021, led to a noticeable but not significa
 
 3.  **Time Scope**: The timeframe for assessing the effects of ULEZ expansion may need adjustment and could necessitate iterative analysis.
 '''
+st.write(ulez_limits)
 
-st.write(ulez)
-
-
+# GCSE
 gcse = '''
 ## 11/2022-01/2023: Why are KS4 performance in Liverpool and Manchester lower than the national average? 
 -- Exploration and Quantification of Socio-economic Factors Influencing KS4 Performance in England
